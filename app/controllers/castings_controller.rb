@@ -3,7 +3,7 @@ class CastingsController < ApplicationController
 
   # GET /castings
   def index
-    @castings = Casting.all
+    @castings = Casting.page(params[:page]).per(10)
   end
 
   # GET /castings/1
