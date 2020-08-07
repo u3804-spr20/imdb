@@ -13,5 +13,4 @@ class CastingResource < ApplicationResource
   belongs_to :movie
 
   # Indirect associations
-
 end

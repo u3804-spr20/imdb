@@ -9,14 +9,13 @@ class Casting < ApplicationRecord
 
   # Validations
 
-  validates :actor_id, :presence => true
+  validates :actor_id, presence: true
 
-  validates :movie_id, :presence => true
+  validates :movie_id, presence: true
 
   # Scopes
 
   def to_s
     character_name
   end
-
 end
