@@ -3,7 +3,8 @@ class CastingsController < ApplicationController
 
   # GET /castings
   def index
-    @castings = Casting.page(params[:page]).per(10)
+    @q = Casting.ransack(params[:q])
+    @castings = @q.result(:distinct => true).includes(:movie, :actor).page(params[:page]).per(10)
   end
 
   # GET /castings/1
