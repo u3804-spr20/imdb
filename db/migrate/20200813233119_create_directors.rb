@@ -4,6 +4,7 @@ class CreateDirectors < ActiveRecord::Migration[6.0]
       t.string :name
       t.string :bio
       t.string :image
+      t.integer :state
 
       t.timestamps
     end

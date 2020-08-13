@@ -5,6 +5,7 @@ class DirectorResource < ApplicationResource
   attribute :name, :string
   attribute :bio, :string
   attribute :image, :string
+  attribute :state, :integer_enum, allow: Director.states.keys
 
   # Direct associations
 
