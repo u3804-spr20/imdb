@@ -1,4 +1,6 @@
 class Director < ApplicationRecord
+  enum state: { "mi" => 0, "il" => 1, "in" => 2, "oh" => 3 }
+
   # Direct associations
 
   has_many   :movies,
@@ -11,6 +13,8 @@ class Director < ApplicationRecord
   validates :name, presence: true
 
   # Scopes
+
+  scope :hello, -> { where(name: "hello") }
 
   def to_s
     name

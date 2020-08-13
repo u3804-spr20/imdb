@@ -67,5 +67,27 @@
       <% end %>
     <% end %>
   </div>
+  <div class="form-group">
+    <% state_class = "form-control" %>
+    <% state_was_invalid = director.errors.include?(:state) %>
+
+    <% if was_validated %>
+      <% if state_was_invalid %>
+        <% state_class << " is-invalid" %>
+      <% else %>
+        <% state_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :state %>
+    <%= f.select :state, options_for_select(Director.states.keys), {}, class: "form-control" %>
+    <% if state_was_invalid %>
+      <% director.errors.full_messages_for(:state).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
   <%= f.button class: "btn btn-outline-secondary btn-block" %>
 <% end %>
